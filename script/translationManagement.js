@@ -1,7 +1,14 @@
 
 const translations = {
     en: {
-       
+        home: "HOME",
+        about: "ABOUT US",
+        messages: "MESSAGES",
+        management: "MANAGEMENT",
+        gallery: "GALLERY",
+        contact: "CONTACT US",
+        presidentDesk: "FROM PRESIDENT'S DESK",
+        secretaryDesk: "FROM SECRETARY'S DESK",
         committee:"COMMITTEE",
         committeeMembers:"COMMITTEE MEMBERS",
         executiveCommitteeMembers:"EXECUTIVE COMMITTEE MEMBERS",
@@ -12,7 +19,14 @@ const translations = {
 
     },
     hi: {
-      
+        home: "होम",
+        about: "हमारे बारे में",
+        messages: "संदेश",
+        management: "प्रबंधन",
+        gallery: "गेलरी",
+        contact: "संपर्क करें",
+        presidentDesk: "अध्यक्ष का संदेश",
+        secretaryDesk: "सचिव का संदेश",
         committee:"समिति",
         committeeMembers:"समिति सदस्य",
         executiveCommitteeMembers:"एक्ज़ीक्यूटिव कमिटी मेंबर्स",
@@ -21,7 +35,14 @@ const translations = {
 
     },
     ml: {
-       
+        home: "ഹോം",
+    about: "ഞങ്ങളേക്കുറിച്ച്",
+    messages: "സന്ദേശങ്ങൾ",
+    management: "മേനേജ്മെന്റ്",
+    gallery: "ഗാലറി",
+    contact: "ബന്ധപ്പെടുക",
+    presidentDesk: "പ്രസിഡന്റിന്റെ സന്ദേശം",
+    secretaryDesk: "സെക്രടറിയുടെ സന്ദേശം",
         committee:"കമ്മിറ്റി",
         committeeMembers:"കമ്മിറ്റി അംഗങ്ങൾ",
         malayalamMission:"മലയാളം മിഷൻ-അധ്യാപികമാർ",
@@ -32,7 +53,38 @@ const translations = {
     },
 };
 
-
+const navTranslations = {
+    en: {
+      home: "HOME",
+      about: "ABOUT US",
+      messages: "MESSAGES",
+      management: "MANAGEMENT",
+      gallery: "GALLERY",
+      contact: "CONTACT US",
+      presidentDesk: "FROM PRESIDENT'S DESK",
+      secretaryDesk: "FROM SECRETARY'S DESK",
+    },
+    hi: {
+      home: "होम",
+      about: "हमारे बारे में",
+      messages: "संदेश",
+      management: "प्रबंधन",
+      gallery: "गेलरी",
+      contact: "संपर्क करें",
+      presidentDesk: "अध्यक्ष का संदेश",
+      secretaryDesk: "सचिव का संदेश",
+    },
+    ml: {
+      home: "ഹോം",
+      about: "ഞങ്ങളേക്കുറിച്ച്",
+      messages: "സന്ദേശങ്ങൾ",
+      management: "മേനേജ്മെന്റ്",
+      gallery: "ഗാലറി",
+      contact: "ബന്ധപ്പെടുക",
+      presidentDesk: "പ്രസിഡന്റിന്റെ സന്ദേശം",
+      secretaryDesk: "സെക്രടറിയുടെ സന്ദേശം",
+    },
+  };
 
 
 
@@ -43,7 +95,45 @@ function switchLanguage() {
 
     // Save the selected language in localStorage
     localStorage.setItem("selectedLanguage", selectedLanguage);
-
+    const keys = [
+        "home",
+        "about",
+        "messages",
+        "management",
+        "gallery",
+        "contact",
+      ];
+      const dropdownKeys = ["presidentDesk", "secretaryDesk"];
+      const navLinks = document.querySelector(".nav-links");
+      const mobileNavLinks = document.querySelector("#mobileNav");
+      const dropdownLinks = document.querySelector("#messagesDropdown");
+      const dropdownLinksMobile = document.querySelector("#messagesDropdownMobile");
+    
+      // Update main nav links
+      navLinks?.querySelectorAll(".nav-link").forEach((link, index) => {
+        if (keys[index]) {
+          link.textContent = navTranslations[selectedLanguage][keys[index]];
+        }
+      });
+    
+      // Update mobile nav links
+      mobileNavLinks?.querySelectorAll(".nav-link").forEach((link, index) => {
+        if (keys[index]) {
+          link.textContent = navTranslations[selectedLanguage][keys[index]];
+          link.style.fontSize = "10px";
+        }
+      });
+    
+      // Update dropdowns
+      dropdownLinks?.querySelectorAll(".dropdown-link").forEach((link, index) => {
+        link.textContent = navTranslations[selectedLanguage][dropdownKeys[index]];
+      });
+    
+      dropdownLinksMobile
+        ?.querySelectorAll(".dropdown-link")
+        .forEach((link, index) => {
+          link.textContent = navTranslations[selectedLanguage][dropdownKeys[index]];
+        });
    
     const managementParagraph = document.querySelector(".managementParagraph");
     const committeeMembers = document.querySelector(".committee-members");

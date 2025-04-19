@@ -20,9 +20,9 @@ const galleries = {
 
 iteration(galleries.OnamCelebration, "OnamCelebration", 28);
 iteration(galleries.MalayalamMission, "MalayalamMission", 22);
-iteration(galleries.SocialActivities, "SocialActivities", 15);
+iteration(galleries.SocialActivities, "SocialActivities", 20);
 iteration(galleries.CulturalPrograms, "CulturalPrograms", 44);
-iteration(galleries.General, "General", 20);
+iteration(galleries.General, "General", 19);
 
 // Add mixed content (images + video) manually for Kerala Piravi
 galleries.KeralaPiravi = [

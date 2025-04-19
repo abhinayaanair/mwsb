@@ -1,7 +1,14 @@
 
 const translations = {
     en: {
-       
+        home: "HOME",
+        about: "ABOUT US",
+        messages: "MESSAGES",
+        management: "MANAGEMENT",
+        gallery: "GALLERY",
+        contact: "CONTACT US",
+        presidentDesk: "FROM PRESIDENT'S DESK",
+        secretaryDesk: "FROM SECRETARY'S DESK",
         galleryParagraph: "Welcome to our <strong>Gallery</strong>, where we showcase the vibrant and diverse events of <strong>Malayalee Welfare Samaj Bhiwadi</strong>. Through these images, we relive the spirit of togetherness, cultural heritage, and social initiatives that define our community.",
 
         galleryH3: "Explore our cherished memories:",
@@ -16,7 +23,14 @@ const translations = {
 
     },
     hi: {
-        
+        home: "होम",
+    about: "हमारे बारे में",
+    messages: "संदेश",
+    management: "प्रबंधन",
+    gallery: "गेलरी",
+    contact: "संपर्क करें",
+    presidentDesk: "अध्यक्ष का संदेश",
+    secretaryDesk: "सचिव का संदेश",
         galleryParagraph: "हमारी गैलरी में आपका स्वागत है, जहाँ हम मलयाली वेलफेयर समाज भीवाड़ी की जीवंत और विविध गतिविधियाँ प्रस्तुत करते हैं। इन तस्वीरों के माध्यम से, हम एकता, सांस्कृतिक विरासत और सामाजिक प्रयासों की भावना को पुनः अनुभव करते हैं।",
         galleryH3: "हमारी अनमोल यादों को महसूस करें",
 
@@ -31,7 +45,14 @@ const translations = {
 
     },
     ml: {
-      
+        home: "ഹോം",
+        about: "ഞങ്ങളേക്കുറിച്ച്",
+        messages: "സന്ദേശങ്ങൾ",
+        management: "മേനേജ്മെന്റ്",
+        gallery: "ഗാലറി",
+        contact: "ബന്ധപ്പെടുക",
+        presidentDesk: "പ്രസിഡന്റിന്റെ സന്ദേശം",
+        secretaryDesk: "സെക്രടറിയുടെ സന്ദേശം",
         galleryParagraph: "ഞങ്ങളുടെ ഗാലറിയിലേക്ക് സ്വാഗതം, ഇവിടെ മലയാളി വെൽഫെയർ സമാജ് ഭിവാഡിയുടെ സമ്പന്നവും വൈവിധ്യമാർന്ന പരിപാടികൾ കാണാവുന്നതാണ്. ഈ ചിത്രങ്ങൾ ഐക്യത, സംസ്കാരപൈതൃകം, സാമൂഹിക പ്രവർത്തനങ്ങൾ എന്നിവയിലൂടെ നമ്മുടെ സമൂഹത്തിന്റെ ആത്മാവിനെ മുന്നോട്ടുവയ്ക്കുന്നു"
         ,
         galleryH3: "ഞങ്ങളുടെ വിലപ്പെട്ട ഓർമ്മകൾ അനുഭവിക്കുക:",
@@ -47,13 +68,82 @@ const translations = {
     },
 };
 
-
+const navTranslations = {
+    en: {
+      home: "HOME",
+      about: "ABOUT US",
+      messages: "MESSAGES",
+      management: "MANAGEMENT",
+      gallery: "GALLERY",
+      contact: "CONTACT US",
+      presidentDesk: "FROM PRESIDENT'S DESK",
+      secretaryDesk: "FROM SECRETARY'S DESK",
+    },
+    hi: {
+      home: "होम",
+      about: "हमारे बारे में",
+      messages: "संदेश",
+      management: "प्रबंधन",
+      gallery: "गेलरी",
+      contact: "संपर्क करें",
+      presidentDesk: "अध्यक्ष का संदेश",
+      secretaryDesk: "सचिव का संदेश",
+    },
+    ml: {
+      home: "ഹോം",
+      about: "ഞങ്ങളേക്കുറിച്ച്",
+      messages: "സന്ദേശങ്ങൾ",
+      management: "മേനേജ്മെന്റ്",
+      gallery: "ഗാലറി",
+      contact: "ബന്ധപ്പെടുക",
+      presidentDesk: "പ്രസിഡന്റിന്റെ സന്ദേശം",
+      secretaryDesk: "സെക്രടറിയുടെ സന്ദേശം",
+    },
+  };
 function switchLanguage() {
     const selectedLanguage = document.getElementById("language").value;
 
     // Save the selected language in localStorage
     localStorage.setItem("selectedLanguage", selectedLanguage);
-
+    const keys = [
+        "home",
+        "about",
+        "messages",
+        "management",
+        "gallery",
+        "contact",
+      ];
+      const dropdownKeys = ["presidentDesk", "secretaryDesk"];
+      const navLinks = document.querySelector(".nav-links");
+      const mobileNavLinks = document.querySelector("#mobileNav");
+      const dropdownLinks = document.querySelector("#messagesDropdown");
+      const dropdownLinksMobile = document.querySelector("#messagesDropdownMobile");
+    
+      // Update main nav links
+      navLinks?.querySelectorAll(".nav-link").forEach((link, index) => {
+        if (keys[index]) {
+          link.textContent = navTranslations[selectedLanguage][keys[index]];
+        }
+      });
+    
+      // Update mobile nav links
+      mobileNavLinks?.querySelectorAll(".nav-link").forEach((link, index) => {
+        if (keys[index]) {
+          link.textContent = navTranslations[selectedLanguage][keys[index]];
+          link.style.fontSize = "10px";
+        }
+      });
+    
+      // Update dropdowns
+      dropdownLinks?.querySelectorAll(".dropdown-link").forEach((link, index) => {
+        link.textContent = navTranslations[selectedLanguage][dropdownKeys[index]];
+      });
+    
+      dropdownLinksMobile
+        ?.querySelectorAll(".dropdown-link")
+        .forEach((link, index) => {
+          link.textContent = navTranslations[selectedLanguage][dropdownKeys[index]];
+        });
  
 
    
