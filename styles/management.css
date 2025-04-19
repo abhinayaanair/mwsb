@@ -1,0 +1,49 @@
+
+.member-row {
+    display: flex;
+    gap: 5rem;
+}
+
+.member-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.member-img {
+    width: 12rem;
+    height: 15rem;
+    object-fit: cover;
+}
+
+
+hr {
+    width: 100%
+}
+
+.committee-line {
+    width: 20%
+}
+.main-box{
+   
+    padding: 1rem;
+}
+
+@media (max-width: 991px) {
+    .member-row {
+        flex-direction: column;
+        gap: 0rem
+    }
+
+    .member-img {
+        width: 8rem;
+        height: 10rem;
+        object-fit: cover;
+    }
+
+    .member-column {
+        display: flex;
+        justify-content: start;
+        align-items: start;
+    }
+}
