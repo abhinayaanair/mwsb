@@ -32,8 +32,7 @@ function setupDropdownToggle() {
       dropdown?.classList.toggle("active");
      ;
     });
-  
-    // Toggle mobile dropdown on click
+    
     messagesLinkMobile?.addEventListener("click", (e) => {
       e.preventDefault();
       dropdownMobile?.classList.toggle("active");

@@ -134,6 +134,7 @@ window.addEventListener("load", function () {
   setupDropdownToggle();
 });
 
+
 // Event listeners
 document.getElementById("language").addEventListener("change", switchLanguage);
 

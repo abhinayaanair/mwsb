@@ -184,12 +184,14 @@ function switchLanguage() {
 
 }
 
-// Load stored language preference on page load
+// Load stored language preference and initialize
 window.addEventListener("load", function () {
     const storedLanguage = localStorage.getItem("selectedLanguage") || "en";
     document.getElementById("language").value = storedLanguage;
     switchLanguage();
-});
+    setupDropdownToggle();
+  });
+  
 
 // Event listeners
 document.getElementById("language").addEventListener("change", switchLanguage);
