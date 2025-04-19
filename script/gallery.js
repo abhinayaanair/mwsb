@@ -18,7 +18,7 @@ const galleries = {
     KeralaPiravi: []
 };
 
-iteration(galleries.OnamCelebration, "OnamCelebration", 28);
+iteration(galleries.OnamCelebration, "OnamCelebration", 34);
 iteration(galleries.MalayalamMission, "MalayalamMission", 22);
 iteration(galleries.SocialActivities, "SocialActivities", 20);
 iteration(galleries.CulturalPrograms, "CulturalPrograms", 44);
